@@ -1,0 +1,39 @@
+import java.util.regex.Pattern
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.+'
+    }
+}
+
+apply plugin: 'android-library'
+
+dependencies {
+    compile fileTree(dir: 'UserVoiceSDK/libs', include: '*.jar')
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 19
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'UserVoiceSDK/AndroidManifest.xml'
+            java.srcDirs = ['UserVoiceSDK/src']
+            res.srcDirs = ['UserVoiceSDK/res']
+        }
+    }
+}

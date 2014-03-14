@@ -6,6 +6,28 @@ You can try out UserVoice for Android by installing the [UserVoice Help Center a
 
 You will need a UserVoice account (free) for it to connect to. Go to [uservoice.com](https://www.uservoice.com/plans/) to sign up.
 
+### Installation for Android Studio with Gradle
+
+* Build UserVoice SDK for release
+
+```
+./release
+```
+
+* Copy build/libs/uservoice-android-sdk.aar to your projects libs directory (or somewhere else you want to put it)
+* Make sure you have maven installed, and then go to the directory with the uservoice-android-sdk.aar file
+
+```
+mvn install:install-file -Dfile=uservoice-android-sdk.aar -DgroupId=com.uservoice -DartifactId=uservoicesdk -Dversion=1.0.0 -Dpackaging=aar
+```
+
+* Add mavenLocal() to your repositories repositories(s) of your apps build.gradle
+* Add UserVoice SDK as a dependency
+
+```
+compile 'com.uservoice:uservoicesdk:+'
+```
+
 ### Installation for Eclipse
 
 * File -> Import... -> General -> Existing Projects into Workspace
